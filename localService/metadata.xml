@@ -1,0 +1,154 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZGW_OTC_YABF_SRV_02" xml:lang="en" sap:schema-version="1">
+            <Annotation
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.SchemaVersion" String="1.0.0"/>
+                <EntityType Name="YABFDATA" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="WERKS"/>
+                    </Key>
+                    <Property Name="WERKS" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="VKORG" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="VKBUR" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Sales office" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="VBELN" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Sales Order Number" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="POSNR" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Item number" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="VKGRP" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Sales Group" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="AUART" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Sales Document Type" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="MATNR" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Material Number" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="KUNNR" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Dealer Number" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="BSTKD" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="PO Number" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="LPRIO" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Delivery Priority" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="EDATU" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Request Delivery date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="LGORT" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Storage Location" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="LFIMG" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Open delivery Qty" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="RFMNG" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Open Order Qty" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="WMENG" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Confirmed quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="ZTERM" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Term" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="AUTLF" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Complete Delivery" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="CREDITBL" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Credit Block" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="ARKTX" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Material Description" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="SALES_MODEL" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Sales model" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="MAKTX" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Sales model description" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="BACKORD_RB" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Backorders" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="FUTRORD_RB" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Future orders" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="OTHPERD_RB" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Other Period" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="ALLOPENORD" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="All Open Orders" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="OPENSO" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Open SO Only" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="OPENDELV" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Open Delivery Only" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="ALLCB" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="All" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="PUOCB" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Power Unit Orders" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="NPUCB" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Non Power Unit Orders" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                </EntityType>
+                <EntityType Name="PlantVH" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="PLANT"/>
+                    </Key>
+                    <Property Name="PLANT" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="PLANTNAME2" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Plant Name" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                </EntityType>
+                <EntityType Name="SalesOrgVH" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="SALESORGANIZATION"/>
+                        <PropertyRef Name="LANGUAGE"/>
+                    </Key>
+                    <Property Name="SALESORGANIZATION" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="LANGUAGE" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="SALESORGANIZATIONNAME" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Sales Org Description" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                </EntityType>
+                <EntityType Name="SalesOfcVH" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="SALESOFFICE"/>
+                        <PropertyRef Name="LANGUAGE"/>
+                    </Key>
+                    <Property Name="SALESOFFICE" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sales Office" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="LANGUAGE" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="SALESOFFICENAME" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Sales Office Name" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                </EntityType>
+                <EntityType Name="SalesOrdVH" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="SALESDOCUMENT"/>
+                    </Key>
+                    <Property Name="SALESDOCUMENT" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Sales Order Number" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="PURCHASEORDERBYCUSTOMER" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Cust. Reference" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="SalesGrpVH" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="SALESGROUP"/>
+                        <PropertyRef Name="LANGUAGE"/>
+                    </Key>
+                    <Property Name="SALESGROUP" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Sales Group" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="LANGUAGE" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="SALESGROUPNAME" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Sales Group Name" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                </EntityType>
+                <EntityType Name="SalesDocTypeVH" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="SALESDOCUMENTTYPE"/>
+                        <PropertyRef Name="LANGUAGE"/>
+                    </Key>
+                    <Property Name="SALESDOCUMENTTYPE" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Sales Document Type" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="LANGUAGE" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="SALESDOCUMENTTYPENAME" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Sales Document Type Name" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                </EntityType>
+                <EntityType Name="MaterialVH" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="MATERIAL"/>
+                        <PropertyRef Name="LANGUAGE"/>
+                    </Key>
+                    <Property Name="MATERIAL" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="LANGUAGE" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="MATERIALNAME" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Material Name" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                </EntityType>
+                <EntityType Name="DealerVH" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="DEALER"/>
+                    </Key>
+                    <Property Name="DEALER" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Dealer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="DEALERNAME" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Dealer Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="CUSTOMERACCOUNTGROUP" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Dealer Account Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="PONumVH" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="SALESDOCUMENT"/>
+                    </Key>
+                    <Property Name="SALESDOCUMENT" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Sales Order Number" sap:creatable="false" sap:updatable="false"/>
+                    <Property Name="PURCHASEORDERBYCUSTOMER" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Cust. Reference" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                </EntityType>
+                <EntityType Name="SalesModelVH" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="NEW_MATNR"/>
+                    </Key>
+                    <Property Name="NEW_MATNR" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Material Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="SALES_MODEL" Type="Edm.String" Nullable="false" MaxLength="70" sap:unicode="false" sap:label="Characteristic Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="OLD_MATNR" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Old material number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="DelvPrioVH" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="DELIVERYPRIORITY"/>
+                    </Key>
+                    <Property Name="DELIVERYPRIORITY" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Delivery Prior." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityContainer Name="ZGW_OTC_YABF_SRV_02_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                    <EntitySet Name="YABFDATASet" EntityType="ZGW_OTC_YABF_SRV_02.YABFDATA" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="PlantVHSet" EntityType="ZGW_OTC_YABF_SRV_02.PlantVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SalesOrgVHSet" EntityType="ZGW_OTC_YABF_SRV_02.SalesOrgVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SalesOfcVHSet" EntityType="ZGW_OTC_YABF_SRV_02.SalesOfcVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SalesOrdVHSet" EntityType="ZGW_OTC_YABF_SRV_02.SalesOrdVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SalesGrpVHSet" EntityType="ZGW_OTC_YABF_SRV_02.SalesGrpVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SalesDocTypeVHSet" EntityType="ZGW_OTC_YABF_SRV_02.SalesDocTypeVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="MaterialVHSet" EntityType="ZGW_OTC_YABF_SRV_02.MaterialVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="DealerVHSet" EntityType="ZGW_OTC_YABF_SRV_02.DealerVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="PONumVHSet" EntityType="ZGW_OTC_YABF_SRV_02.PONumVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SalesModelVHSet" EntityType="ZGW_OTC_YABF_SRV_02.SalesModelVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="DelvPrioVHSet" EntityType="ZGW_OTC_YABF_SRV_02.DelvPrioVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                </EntityContainer>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZGW_OTC_YABF_SRV_02/$metadata"/>
+                    <atom:link
+                        xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZGW_OTC_YABF_SRV_02/$metadata"/>
+                    </Schema>
+                </edmx:DataServices>
+            </edmx:Edmx>

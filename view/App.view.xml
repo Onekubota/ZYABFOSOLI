@@ -1,0 +1,257 @@
+<mvc:View controllerName="kna.yabf.opensoitemszyabfosoli.controller.App" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:table="sap.ui.table" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.f"
+	height="100%">
+	<App id="idApp">
+		<!--<pages>-->
+		<f:DynamicPage id="listPage" busy="{busy>/isBusy}" showFooter="true" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false"
+			fitContent="true">
+			<f:title></f:title>
+			<f:header>
+				<f:DynamicPageHeader id="dynamicalPageHeader" pinnable="true">
+					<f:content>
+						<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="YABFDATASet" persistencyKey="SmartFilter_Explored">
+							<smartFilterBar:controlConfiguration>
+								<smartFilterBar:ControlConfiguration key="WERKS" index="0" visibleInAdvancedArea="true" mandatory="mandatory"></smartFilterBar:ControlConfiguration>
+								<smartFilterBar:ControlConfiguration key="VKORG" index="1" visibleInAdvancedArea="true"/>
+								<smartFilterBar:ControlConfiguration key="VKBUR" index="2" visibleInAdvancedArea="true"/>
+								<smartFilterBar:ControlConfiguration key="VBELN" index="3" visibleInAdvancedArea="true"/>
+								<smartFilterBar:ControlConfiguration key="VKGRP" index="4" visibleInAdvancedArea="true"/>
+								<smartFilterBar:ControlConfiguration key="AUART" index="5" visibleInAdvancedArea="true"/>
+								<smartFilterBar:ControlConfiguration key="MATNR" index="6" visibleInAdvancedArea="true"/>
+								<smartFilterBar:ControlConfiguration key="SALES_MODEL" index="7" visibleInAdvancedArea="true"/>
+								<smartFilterBar:ControlConfiguration key="KUNNR" index="8" visibleInAdvancedArea="true"/>
+								<smartFilterBar:ControlConfiguration key="BSTKD" index="9" visibleInAdvancedArea="true"/>
+								<smartFilterBar:ControlConfiguration key="LPRIO" index="10" visibleInAdvancedArea="true"/>
+								<smartFilterBar:ControlConfiguration key="EDATU" index="11" visibleInAdvancedArea="true"
+									conditionType="{ module: 'sap.ui.comp.config.condition.DateRangeType', ignoreTime: true}"/>
+								<smartFilterBar:ControlConfiguration key="ALLOPENORD" index="12" visibleInAdvancedArea="true">
+									<smartFilterBar:customControl>
+										<RadioButtonGroup id="idOrderType">
+											<RadioButton text="{/#YABFDATA/ALLOPENORD/@sap:label}" selected="true"/>
+											<RadioButton text="{/#YABFDATA/OPENSO/@sap:label}"/>
+											<RadioButton text="{/#YABFDATA/OPENDELV/@sap:label}"/>
+										</RadioButtonGroup>
+									</smartFilterBar:customControl>
+								</smartFilterBar:ControlConfiguration>
+								<smartFilterBar:ControlConfiguration key="ALLCB" index="12" visibleInAdvancedArea="true">
+									<smartFilterBar:customControl>
+										<!--	<Label text="Power Unit" labelFor="GroupB"/>-->
+										<RadioButtonGroup id="idPowerUnit">
+											<RadioButton text="{/#YABFDATA/ALLCB/@sap:label}" selected="true"/>
+											<RadioButton text="{/#YABFDATA/PUOCB/@sap:label}"/>
+											<RadioButton text="{/#YABFDATA/NPUCB/@sap:label}"/>
+										</RadioButtonGroup>
+									</smartFilterBar:customControl>
+								</smartFilterBar:ControlConfiguration>
+							</smartFilterBar:controlConfiguration>
+						</smartFilterBar:SmartFilterBar>
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+				<smartTable:SmartTable entitySet="YABFDATASet" smartFilterId="smartFilterBar" tableType="Table" useExportToExcel="true" height="100%"
+					width="100%" useTablePersonalisation="true" header="{i18n>openSoItems}" showRowCount="true" enableAutoBinding="true" demandPopin="true"
+					editTogglable="false" beforeRebindTable="onBeforeRebindTable"
+					initiallyVisibleFields="VKORG,WERKS,LGORT,VKGRP,KUNNR,AUART,LPRIO,VBELN,POSNR,MATNR,LFIMG,RFMNG,WMENG,ZTERM,EDATU,AUTLF,CREDITBL,BSTKD,ARKTX,SALES_MODEL,MAKTX"
+					ignoreFromPersonalisation="BACKORD_RB,FUTRORD_RB,OTHPERD_RB,ALLOPENORD,OPENSO,OPENDELV,ALLCB,PUOCB,NPUCB">
+					<table:Table id="idSOItemsTable" enableGrouping="true" enableColumnFreeze="true" class="uiClass" visibleRowCountMode="Fixed" rowHeight="30"
+						noData="{i18n>ApplyFilters}" threshold="10">
+						<table:columns visibleRowCount="15" autoResizable="true" minWidth="100" width="auto" enableGrouping="true" rows="{path:'/YABFDATASet'}">
+							<table:Column sortProperty="VKORG" filterProperty="VKORG" id="VKORG" minWidth="120px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "VKORG", "columnIndex":"0" ,"leadingProperty":"VKORG" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/VKORG/@sap:label}"/>
+								<table:template >
+									<Text text="{VKORG}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="VBELN" filterProperty="VBELN" id="VBELN" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "VBELN", "columnIndex":"1" ,"leadingProperty":"VBELN" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/VBELN/@sap:label}"/>
+								<table:template>
+									<Link text="{VBELN}" press="onPressSalesOrderNumber"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="WERKS" filterProperty="WERKS" id="WERKS" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "WERKS", "columnIndex":"2" ,"leadingProperty":"WERKS" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/WERKS/@sap:label}"/>
+								<table:template>
+									<Link text="{WERKS}" press="onPressPlant"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="MATNR" filterProperty="MATNR" id="MATNR" minWidth="150px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "MATNR", "columnIndex":"3" ,"leadingProperty":"MATNR" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/MATNR/@sap:label}"/>
+								<table:template>
+									<Link text="{MATNR}" press="onPressMaterialNumber"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="LGORT" filterProperty="LGORT" id="LGORT" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "LGORT", "columnIndex":"4" ,"leadingProperty":"LGORT" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/LGORT/@sap:label}"/>
+								<table:template>
+									<Text text="{LGORT}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="VKGRP" filterProperty="VKGRP" id="VKGRP" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "VKGRP", "columnIndex":"5" ,"leadingProperty":"VKGRP" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/VKGRP/@sap:label}"/>
+								<table:template>
+									<Text text="{VKGRP}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="KUNNR" filterProperty="KUNNR" id="KUNNR" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "KUNNR", "columnIndex":"6" ,"leadingProperty":"KUNNR" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/KUNNR/@sap:label}"/>
+								<table:template>
+									<Text text="{KUNNR}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="AUART" filterProperty="AUART" id="AUART" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "AUART", "columnIndex":"7" ,"leadingProperty":"AUART" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/AUART/@sap:label}"/>
+								<table:template>
+									<Text text="{AUART}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="LPRIO" filterProperty="LPRIO" id="LPRIO" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "LPRIO", "columnIndex":"8" ,"leadingProperty":"LPRIO" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/LPRIO/@sap:label}"/>
+								<table:template>
+									<Text text="{LPRIO}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="POSNR" filterProperty="POSNR" id="POSNR" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "POSNR", "columnIndex":"9" ,"leadingProperty":"POSNR" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/POSNR/@sap:label}"/>
+								<table:template>
+									<Text text="{POSNR}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="LFIMG" filterProperty="LFIMG" id="LFIMG" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "LFIMG", "columnIndex":"10" ,"leadingProperty":"LFIMG" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/LFIMG/@sap:label}"/>
+								<table:template>
+									<Text text="{LFIMG}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="RFMNG" filterProperty="RFMNG" id="RFMNG" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "RFMNG", "columnIndex":"11" ,"leadingProperty":"RFMNG" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/RFMNG/@sap:label}"/>
+								<table:template>
+									<Text text="{RFMNG}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="WMENG" filterProperty="WMENG" id="WMENG" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "WMENG", "columnIndex":"12" ,"leadingProperty":"WMENG" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/WMENG/@sap:label}"/>
+								<table:template>
+									<Text text="{WMENG}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="ZTERM" filterProperty="ZTERM" id="ZTERM" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "ZTERM", "columnIndex":"13" ,"leadingProperty":"ZTERM" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/ZTERM/@sap:label}"/>
+								<table:template>
+									<Text text="{ZTERM}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="EDATU" id="EDATU" minWidth="150px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "EDATU", "columnIndex":"14" ,"leadingProperty":"EDATU","type":"date" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/EDATU/@sap:label}"/>
+								<table:template>
+									<Text text="{path: 'EDATU', formatter: '.formatter.requestedDeliveryDate'}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="AUTLF" filterProperty="AUTLF" id="AUTLF" minWidth="150px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "AUTLF", "columnIndex":"15" ,"leadingProperty":"AUTLF" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/AUTLF/@sap:label}"/>
+								<table:template>
+									<Text text="{AUTLF}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="CREDITBL" filterProperty="CREDITBL" id="CREDITBL" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "CREDITBL", "columnIndex":"16" ,"leadingProperty":"CREDITBL" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/CREDITBL/@sap:label}"/>
+								<table:template>
+									<Text text="{CREDITBL}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="BSTKD" filterProperty="BSTKD" id="BSTKD" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "BSTKD", "columnIndex":"17" ,"leadingProperty":"BSTKD" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/BSTKD/@sap:label}"/>
+								<table:template>
+									<Text text="{BSTKD}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="ARKTX" filterProperty="ARKTX" id="ARKTX" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "ARKTX", "columnIndex":"18" ,"leadingProperty":"ARKTX" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/ARKTX/@sap:label}"/>
+								<table:template>
+									<Text text="{ARKTX}"/>
+								</table:template>
+							</table:Column>
+							<table:Column sortProperty="SALES_MODEL" filterProperty="SALES_MODEL" id="SALES_MODEL" minWidth="100px">
+								<table:customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "SALES_MODEL", "columnIndex":"19" ,"leadingProperty":"SALES_MODEL" }'/>
+								</table:customData>
+								<Text text="{/#YABFDATA/SALES_MODEL/@sap:label}"/>
+								<table:template>
+									<Text text="{SALES_MODEL}"/>
+								</table:template>
+							</table:Column>
+							<!--	<table:Column sortProperty="MAKTX" filterProperty="MAKTX" id="MAKTX" minWidth="100px">
+									<table:customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "MAKTX", "columnIndex":"20" ,"leadingProperty":"MAKTX" }'/>
+									</table:customData>
+									<Text text="{/#YABFDATA/MAKTX/@sap:label}"/>
+									<table:template>
+										<Text text="{MAKTX}"/>
+									</table:template>
+								</table:Column>-->
+						</table:columns>
+					</table:Table>
+				</smartTable:SmartTable>
+			</f:content>
+		</f:DynamicPage>
+		<!--	</pages>-->
+	</App>
+</mvc:View>
